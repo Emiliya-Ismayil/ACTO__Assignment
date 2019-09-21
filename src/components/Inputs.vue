@@ -1,5 +1,5 @@
 <template>
-  <div class="Inputs"  v-bind:style="{ backgroundColor: color}">
+  <div class="Inputs" >
     <b-card bg-variant="light" >
         <header>
           <b-media>
@@ -47,7 +47,6 @@
       <b-form-input id="input-2" 
        v-mask="['X X X X X X']" 
        v-model="text" 
-      :maxlength="max" 
       :state="state" trim
      ></b-form-input>
     </b-form-group>
@@ -58,9 +57,9 @@
       <b-button variant="primary">Play</b-button>
       <b-button variant="danger">Reset</b-button>
     </b-button-group>
+
   </div>
     </b-card>
- 
   </div>
 </template>
 
@@ -84,7 +83,7 @@
       },
       validFeedback() {
         
-        return this.state === true ? 'Thank you' : ''
+        return ''
       }
     
     },
@@ -111,5 +110,8 @@ h5{
   margin-top: 30px;
 }
 
+input {
+    text-transform: uppercase;
+}
 </style>
  

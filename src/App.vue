@@ -1,8 +1,11 @@
 <template>
   <div id="app">
-
+  <div id="leaderboard">
+    <Leaderboard/>
+  </div>
     <Inputs/>
     <PlayBtn/>
+    
 
   </div>
 </template>
@@ -10,12 +13,15 @@
 <script>
 import Inputs from './components/Inputs.vue'
 import PlayBtn from './components/PlayBtn.vue'
+import Leaderboard from './components/Leaderboard.vue'
+
 
 export default {
   name: 'app',
   components: {
     Inputs,
-    PlayBtn
+    PlayBtn,
+    Leaderboard
   }
   
 }
@@ -25,12 +31,11 @@ export default {
 
 <style>
 
-[v-cloak] { display: none; }
+	[v-cloak] { display: none; }
 	body {
-		background: linear-gradient(141deg, #30db86, #718a2c, #0d96bf);
+		background: linear-gradient(141deg, #0d96bf, #649e2d, #0d96bf);
 		background-size: 600% 600%;
 		margin: 0;
-		font-family: Arial;
 		animation: BackgroundChanging 20s ease infinite;
 	}
 	@keyframes BackgroundChanging { 
