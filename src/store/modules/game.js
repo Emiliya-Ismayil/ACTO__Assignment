@@ -10,7 +10,18 @@ const state = {
 
 const getters = {
     playerHand: (state) => state.playerHand.map(card => card.label).join(" "),
-    computerHand: (state) => state.computerHand.map(card => card.label).join(" ")
+    computerHand: (state) => state.computerHand.map(card => card.label).join(" "),
+    winnerText: (state) => {
+        if(state.playerScore > state.computerScore){
+            return 'You WON!!';
+        }
+        else if (state.playerScore < state.computerScore) {
+            return "You LOSE((";
+        }
+        else {
+            return "It's a DRAW!";
+        }
+    }
 }
 
 //   // actions
@@ -32,13 +43,6 @@ const actions = {
             }
         }
         commit("updateScores", { playerScore: currentPlayerScore, computerScore: currentComputerScore });
-    },
-    winner({}){
-       
-         if(playerScore > computerScore)
-         return 'You WON!!'
-         else 
-         return "You LOSE(("
     },
     newRound({ commit }) {
         commit("clearHands");
