@@ -4,7 +4,6 @@
     <Leaderboard/>
   </div>
     <Inputs/>
-    <PlayBtn/>
     
 
   </div>
@@ -12,7 +11,6 @@
 
 <script>
 import Inputs from './components/Inputs.vue'
-import PlayBtn from './components/PlayBtn.vue'
 import Leaderboard from './components/Leaderboard.vue'
 
 
@@ -21,7 +19,6 @@ export default {
   name: 'app',
   components: {
     Inputs,
-    PlayBtn,
     Leaderboard
   }
   
@@ -41,17 +38,6 @@ export default {
       height: 70%;
       background-attachment: fixed;
 	}
-	
-	#app {
-		display: flex;
-		align-content: stretch;
-		align-items: stretch;
-		height: 100vh;
-		padding: 20px;
-		box-sizing: border-box;
-	}
-	.v--modal-overlay {
-		background: rgba(0,0,0,.7);
-	}
+
 
 </style>
