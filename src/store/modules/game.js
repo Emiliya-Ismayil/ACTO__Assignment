@@ -13,13 +13,13 @@ const getters = {
     computerHand: (state) => state.computerHand.map(card => card.label).join(" "),
     winnerText: (state) => {
         if(state.playerScore > state.computerScore){
-            return 'You WON!!';
+            return ' you win!';
         }
         else if (state.playerScore < state.computerScore) {
-            return "You LOSE((";
+            return "you lose..";
         }
-        else {
-            return "It's a DRAW!";
+        else   {
+            return "It's a draw!";
         }
     }
 }

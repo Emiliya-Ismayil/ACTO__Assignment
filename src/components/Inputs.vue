@@ -1,4 +1,5 @@
 <template>
+<!--Inputs for starting the game-->
   <div class="container">
     <div class="row">
       <b-card id="Inputs" bg-variant="light">
@@ -42,29 +43,29 @@
         >
           <b-form-input
             id="input-2"
-            v-mask="['X X X X X X']"
+            v-mask="['X X X X X X']"   
             v-model="text"
             :formatter="formatCards"
             :state="state"
             trim
           ></b-form-input>
         </b-form-group>
-
-        <div class="mt-0">Player : {{ this.$store.state.game.playerName }}</div>
         <div class="mt-0">
           <b-button-group>
-            <b-button variant="primary" v-on:click="playClick">Play</b-button>
+            <b-button variant="primary" v-on:click="playClick" @click="WinnerResult(true)">Play</b-button>
+            
             <b-button variant="danger" v-on:click="refreshClick">Refresh</b-button>
           </b-button-group>
         </div>
       </b-card>
     </div>
-  </div>
+  </div>    
 </template>
 
 
   <script>
 import { CARD_TYPES } from "../store/states/card";
+
 export default {
   computed: {
     state() {
@@ -88,13 +89,26 @@ export default {
   data() {
     return {
       text: "",
-      image: require("@/assets/logo.png")
+      image: require("@/assets/logo.png"),
+     
+
     };
   },
   methods: {
     playClick: function() {
-      this.$store.dispatch("play");
+      this.$store.dispatch("play");      //Call the action from game.js
+      
+     
     },
+     WinnerResult(append = false) {   //alert
+
+         this.$bvToast.toast(`${this.$store.state.game.playerName}  ${this.$store.getters.winnerText}`, {
+          title: 'Winner : ',
+          autoHideDelay: 5000,
+          appendToast: append
+        })
+      },
+    
     refreshClick() {
       window.location.reload();
     },
@@ -106,10 +120,10 @@ export default {
       let lastInput = value[value.length - 1];
       let oldInput = value.substring(0, value.length - 1);
       if (event.type === "input") {
-        if (
+        if (                                 // event.type-> "input" means user entry
           lastInput &&
           Object.values(CARD_TYPES).find(
-            type => type === lastInput.toUpperCase()
+            type => type === lastInput.toUpperCase()    //if lastInput == CARD_TYPES
           )
         ) {
           return oldInput + lastInput.toUpperCase();

@@ -1,10 +1,9 @@
 <template>
- 
+ <!--Show The Game-->
    <div class="container">
-	<div class="row"  >
-	
+	<div class="row"  >	
   <b-alert id="board" show variant="" :items="items">
-    <h4 class="alert-heading" style="color: #FFF;">Leaderboard</h4> <hr>
+    <h4 class="alert-heading" style="color: #FFF;">Leaderboard </h4> <hr>
    <div class="col-lg-12" id="players" >Score : {{ this.$store.state.game.playerScore }} Gamer : {{this.$store.state.game.playerName}} Cards : {{this.$store.getters.playerHand}}</div>
     <hr>
 	<div class="col-lg-12" id="players">Score : {{ this.$store.state.game.computerScore }} Gamer : {{'Generator'}} Cards : {{this.$store.getters.computerHand}}</div>
@@ -40,7 +39,7 @@
 	padding: 20px;
 	position: absolute;
 	left: 0;
-	width: 460px;
+	width: 472px;
     height: 200px;
 	  margin:15px;
 	border: 2px solid rgb(172, 255, 38);
@@ -53,7 +52,6 @@
 
 	#players {
 		color: #FFF;
-	
 		margin: 20px 0;
 		position: relative;
 		text-shadow: 1px 1px #000;

@@ -4,8 +4,6 @@
     <Leaderboard/>
   </div>
     <Inputs/>
-    
-
   </div>
 </template>
 
@@ -15,11 +13,13 @@ import Leaderboard from './components/Leaderboard.vue'
 
 
 
+
 export default {
   name: 'app',
   components: {
     Inputs,
-    Leaderboard
+    Leaderboard,
+ 
   }
   
 }

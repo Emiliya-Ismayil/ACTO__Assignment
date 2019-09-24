@@ -57,5 +57,6 @@ const generateCard = () => {
 export {
     Card,
     createCard,
-    generateCard
+    generateCard,
+    CARD_TYPES
 }
